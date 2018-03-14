@@ -13,6 +13,7 @@ app.use(express.static('public'));
 
 /*Configuration de body parser*/
 const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 /* on associe le moteur de vue au module «ejs» */
@@ -157,6 +158,36 @@ app.get('/vider', (req, res) => {
 app.get('/chat', (req, res) => {
 	res.render('socket_vue.ejs');
 })
+
+// Une nouvelle route pour traiter la requête AJAX sauver
+app.post('/ajax_sauver', (req,res) => {
+	req.body._id = ObjectID(req.body._id)
+
+	db.collection('adresse').save(req.body, (err, result) => {
+		if (err) return console.log(err)
+   		console.log('sauvegarder dans la BD')
+		res.send(JSON.stringify(req.body));
+	// res.status(204)
+	})
+})
+
+// Une nouvelle route pour traiter la requête AJAX supprimer
+app.post('/ajax_supprimer', (req, res) => {
+	db.collection('adresse').findOneAndDelete({"_id": ObjectID(req.body._id)}, (err, resultat) => {
+		if (err) return console.log(err)
+		console.log('supprimé de la BD')
+ 		res.send(JSON.stringify(req.body))
+ 	})
+})
+
+// Une nouvelle route pour traiter la requête AJAX ajouter
+app.post('/ajax_ajouter', (req, res) => {
+ 	db.collection('adresse').save(req.body, (err, result) => {
+ 		if (err) return console.log(err)
+ 		console.log('sauvegarder dans la BD')
+ 		res.send(JSON.stringify(req.body))
+ 	})
+ })
 
 /*Connexion à la base de données MongoDB*/
 MongoClient.connect('mongodb://127.0.0.1:27017', (err, database) => {
