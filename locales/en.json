@@ -8,5 +8,14 @@
 	"Téléphone": "Phone",
 	"Courriel": "Email",
 	"courriel": "courriel",
-	"Clavardage": "Chat"
+	"Clavardage": "Chat",
+	"Bienvenue à l'atelier Node.js": "Welcome to Node.js workshop",
+	"Node.js - Express - mongoDB et EJS": "Node.js - Express - mongoDB and EJS",
+	"Atelier Node.js": "Node.js workshop",
+	"Formation continue": "Continuing Education",
+	"Collège de Maisonneuve": "Maisonneuve College",
+	"Le site officiel de Node.js": "Node.js official website",
+	"Fondation Node.js":"Node.js Foundation",
+	"Fondation Linux": "Linux Foundation",
+	"Télécharger mongoDB": "Download mongoDB"
 }
