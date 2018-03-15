@@ -1,14 +1,14 @@
-<h2>Clavardage</h2>
+<h2><%= __("Clavardage") %></h2>
 <section id="enregistrement">
  <input type="text">
- <button onclick="enregistrement()">Enregistrement</button>
+ <button onclick="enregistrement()"><%= __("Enregistrement") %></button>
 </section>
 
 <section id='chat' style='display:none'>
 	<table id='list_user'></table>
 	<table id='message'></table>
 	<section id='message_a_transmettre'>
-		<input type="text" name="txtMessage"><button onclick="transmettre_un_message()">Transmettre</button>
+		<input type="text" name="txtMessage"><button onclick="transmettre_un_message()"><%= __("Transmettre") %></button>
 	</section>
 </section>
 
@@ -76,7 +76,7 @@ let username;
 
  ///////////////////////////////////// afficher tableau users
  function affiche_table_users(data) {
- 	let sChaine = '<th>Utilisateurs en ligne</th>'
+ 	let sChaine = '<th><%= __("Utilisateurs en ligne") %></th>'
 	for (id in data) {
 		sChaine += '<tr>'
 				//+ '<td>' + id + '</td>'
